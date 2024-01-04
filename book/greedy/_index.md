@@ -74,16 +74,16 @@ n, k = map(int, input().split())
 result = 0
 
 while True:
-  # N이 K로 나누어 떨어지는 수가 될 때까지 빼기
-  target = (n // k) * k
-  result += (n - target)
-  n = target
-  # N이 K보다 작을 때 (더 이상 나눌 수 없을 때) 반복문 탈출
-  if n < k:
-    break
-  # K로 나누기
-  result += 1
-  n //= k
+    # N이 K로 나누어 떨어지는 수가 될 때까지 빼기
+    target = (n // k) * k
+    result += (n - target)
+    n = target
+    # N이 K보다 작을 때 (더 이상 나눌 수 없을 때) 반복문 탈출
+    if n < k:
+        break
+    # K로 나누기
+    result += 1
+    n //= k
 
 # 마지막으로 남은 수에 대하여 1씩 빼기
 result += (n - 1)
@@ -119,12 +119,12 @@ data = input()
 result = int(data[0])
 
 for i in range(1, len(data)):
-  # 두 수 중에서 하나라도 '0' 혹은 '1'인 경우, 곱하기보다는 더하기 수행  
-  num = int(data[i])
-  if result <= 1 or num <= 1:
-    result += num
-  else:
-    result *= num
+    # 두 수 중에서 하나라도 '0' 혹은 '1'인 경우, 곱하기보다는 더하기 수행  
+    num = int(data[i])
+    if result <= 1 or num <= 1:
+        result += num
+    else:
+        result *= num
 
 print(result)
 ```
@@ -153,10 +153,10 @@ result = 0  # 총 그룹의 수
 count = 0  # 현재 그룹에 포함된 모험가의 수
 
 for i in data:  # 공포도를 낮은 것부터 하나씩 확인하며
-  count += 1  # 현재 그룹에 해당 모험가를 포함시키기
-  if count >= i:  # 현재 그룹에 포함된 모험가의 수가 현재의 공포도 이상이라면, 그룹 결성
-    result += 1  # 총 그룹의 수 증가시키기
-    count = 0  # 현재 그룹에 포함된 모험가의 수 초기화
+    count += 1  # 현재 그룹에 해당 모험가를 포함시키기
+    if count >= i:  # 현재 그룹에 포함된 모험가의 수가 현재의 공포도 이상이라면, 그룹 결성
+        result += 1  # 총 그룹의 수 증가시키기
+        count = 0  # 현재 그룹에 포함된 모험가의 수 초기화
 
 print(result)
 ```
