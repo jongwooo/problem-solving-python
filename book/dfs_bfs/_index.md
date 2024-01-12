@@ -129,3 +129,80 @@ def gcd(a, b):
   - 재귀 함수가 반복문보다 유리한 경우도 있고 불리한 경우도 있다.
   - 컴퓨터가 함수를 연속적으로 호출하면 컴퓨터 메모리 내부의 스택 프레임이 쌓인다.
     - 그래서 스택을 사용해야 할 때 구현상 **스택 라이브러리 대신 재귀 함수를 이용**하는 경우가 많다.
+
+## DFS (Depth-First Search)
+
+- DFS는 **깊이 우선 탐색**이라고도 부르며 그래프에서 **깊은 부분을 우선적으로 탐색하는 알고리즘**이다.
+- DFS는 **스택 자료구조(혹은 재귀함수)를 이용**하며, 구체적인 동작은 다음과 같다:
+  1. 탐색 시작 노드를 스택에 삽입하고 방문 처리를 한다.
+  2. 스택의 최상단 노드에 방문하지 않은 인접한 노드가 하나라도 있으면 그 노드를 스택에 넣고 방문 처리한다. 방문하지 않은 인접 노드가 없으면 스택에서 최상단 노드를 꺼낸다.
+  3. 더 이상 2번의 과정을 수행할 수 없을 때까지 반복한다.
+
+### DFS 소스코드 예제 (Python)
+
+```python
+def dfs(graph, v, visited):
+    visited[v] = True
+    print(v, end=' ')
+    for i in graph[v]:
+        if not visited[i]:
+            dfs(graph, i, visited)
+
+
+graph = [
+    [],
+    [2, 3, 8],
+    [1, 7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7]
+]
+
+visited = [False] * 9
+dfs(graph, 1, visited)
+```
+
+## BFS (Breadth-First Search)
+
+- BFS는 **너비 우선 탐색**이라고도 부르며, 그래프에서 **가까운 노드부터 우선적으로 탐색하는 알고리즘**이다.
+- BFS는 **큐 자료구조**를 이용하며, 구체적인 동작 과정은 다음과 같다:
+  1. 탐색 시작 노드를 큐에 삽입하고 방문 처리한다.
+  2. 큐에서 노드를 꺼낸 뒤에 해당 노드와 인접 노드 중에서 방문하지 않은 노드를 모두 큐에 삽입하고 방문 처리한다.
+  3. 더 이상 2번의 과정을 수행할 수 없을 때까지 반복한다.
+
+### DFS 소스코드 예제 (Python)
+
+```python
+from collections import deque
+
+
+def bfs(graph, start, visited):
+    queue = deque([start])
+    visited[start] = True
+    while queue:
+        v = queue.popleft()
+        print(v, end=' ')
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+
+
+graph = [
+    [],
+    [2, 3, 8],
+    [1, 7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7]
+]
+
+visited = [False] * 9
+bfs(graph, 1, visited)
+```
