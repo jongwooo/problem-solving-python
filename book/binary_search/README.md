@@ -130,3 +130,34 @@ print(result)
 ```
 
 ---
+
+**<문제>** 정렬된 배열에서 특정 수의 개수 구하기 : 문제 설명
+
+- N개의 원소를 포함하고 있는 수열이 오름차순으로 정렬되어 있다. 이때 이 수열에서 x가 등장하는 횟수를 계산하라.
+- 단, 이 문제는 시간 복잡도 O(log N)으로 알고리즘을 설계하지 않으면 **시간 초과** 판정을 받는다.
+
+**<문제>** 정렬된 배열에서 특정 수의 개수 구하기 : 문제 조건
+
+- 입력 조건: 첫째 줄에 N과 x가 정수 형태로 공백으로 구분되어 입력된다(1 <= N <= 1,000,000, -10^9 <= x <= 10^9). 둘째 줄에 N개의 원소가 정수 형태로 공백으로 구분되어
+  입력된다(-10^9 <= 각 원소의 값 <= 10^9).
+- 출력 조건: 수열의 원소 중에서 값이 x인 원소의 개수를 출력한다. 단 값이 x인 원소가 하나도 없다면 -1을 출력한다.
+
+**<문제>** 정렬된 배열에서 특정 수의 개수 구하기 : 답안 예시 (Python)
+
+```python
+from bisect import bisect_left, bisect_right
+
+
+def count_by_range(a, left_value, right_value):
+    right_index = bisect_right(a, right_value)
+    left_index = bisect_left(a, left_value)
+    return right_index - left_index
+
+
+n, x = map(int, input().split())
+array = list(map(int, input().split()))
+cnt = count_by_range(array, x, x)
+print(-1 if cnt == 0 else cnt)
+```
+
+---
