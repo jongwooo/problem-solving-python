@@ -10,3 +10,4 @@ Problem-Solving codes and algorithms with Python.
 - [Sorting Algorithm](book/sorting_algorithm/README.md)
 - [Binary Search](book/binary_search/README.md)
 - [Dynamic Programming](book/dp/README.md)
+- [Shortest Path Algorithm](book/shortest_path_algorithm/README.md)
