@@ -15,3 +15,4 @@ Problem-Solving codes and algorithms with Python.
 ## References
 
 - [itertools](reference/itertools/README.md)
+- [rotate](reference/rotate/README.md)
