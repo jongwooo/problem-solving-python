@@ -1,5 +1,7 @@
 # itertools
 
+[메인으로 돌아가기](../../README.md)
+
 > [!NOTE]
 > 삼성 SW 역량테스트에서는 [itertools](https://docs.python.org/ko/3/library/itertools.html) 라이브러리를 사용할 수 없다.
 > 따라서 백트래킹으로 직접 구현해야 한다.
